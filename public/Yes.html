@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <h1 class="header_text">Yeeyy ! Finally</h1>
+      </div>
+      <div class="gif_container">
+        <img
+          src="https://i.postimg.cc/wTDG30TB/yes.gif"
+          alt="Cute animated illustration"
+        />
+      </div>
+      <button class="btn" id="yesButton" onclick="nextPage()">
+        Let's Fix a Date
+      </button>
+      
+      <script>
+        function nextPage() {
+          // Check if the Notification API is supported
+          if ('Notification' in window) {
+            // Request permission to show notifications
+            Notification.requestPermission().then(function(permission) {
+              if (permission === 'granted') {
+                // Create a notification
+                var notification = new Notification('Date Fixed!', {
+                  body: 'Great! Looking forward to it.',
+                  icon: 'https://i.postimg.cc/wTDG30TB/yes.gif' // Replace with the path to your icon
+                });
+
+                // Close the notification after a few seconds (optional)
+                setTimeout(function() {
+                  notification.close();
+                }, 5000);
+              }
+            });
+          }
+        }
+      </script>
+    </div>
+  </body>
+</html>
